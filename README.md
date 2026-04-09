@@ -1,12 +1,25 @@
-# 🎯 AI Career Predictor & Intelligent Response Orchestrator
+<div align="center">
+
+# 🎯 AI Career Predictor
+### Intelligent Response Orchestrator
+
+<p>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Gemini_API-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" />
+</p>
 
 > An AI-powered career guidance system combining a **trained ML model**, an **orchestrator service**, and the **Gemini API** to deliver refined, human-friendly career recommendations.
+
+</div>
 
 ---
 
 ## 🚀 Overview
 
-This project is built as an intelligent orchestration pipeline that takes a user's skills, interests, and preferences — then delivers polished, professional career guidance through a multi-stage AI workflow.
+This project is an intelligent orchestration pipeline — it takes a user's skills, interests, and preferences, then delivers polished, professional career guidance through a multi-stage AI workflow.
 
 ```
 User Input → Frontend → Orchestrator → Model Service → Gemini API → Final Response
@@ -17,14 +30,14 @@ User Input → Frontend → Orchestrator → Model Service → Gemini API → Fi
 ## 🧠 How It Works
 
 | Step | Service | Action |
-|------|---------|--------|
+|:----:|---------|--------|
 | 1 | **User** | Enters skills, interests, and career preferences |
 | 2 | **Frontend** | Sends request to the Orchestrator |
 | 3 | **Orchestrator** | Manages workflow, routes to Model Service |
 | 4 | **Model Service** | Runs trained AI model, predicts career/domain |
-| 5 | **Orchestrator** | Forwards prediction to Gemini API |
-| 6 | **Gemini API** | Refines raw output into a polished response |
-| 7 | **User** | Receives a professional career recommendation |
+| 5 | **Orchestrator** | Forwards raw prediction to Gemini API |
+| 6 | **Gemini API** | Refines output into a polished, human-friendly response |
+| 7 | **User** | Receives a professional career recommendation ✅ |
 
 ---
 
@@ -59,6 +72,31 @@ User Input → Frontend → Orchestrator → Model Service → Gemini API → Fi
                 │   Final Response    │
                 └─────────────────────┘
 ```
+
+---
+
+## 🐳 Docker Architecture
+
+Each service runs in its own isolated container, orchestrated via Docker Compose.
+
+```
+       ┌──────────────────────────────────────┐
+       │           Docker Compose             │
+       └────────────┬─────────────────────────┘
+                    │
+          ┌─────────┼──────────┐
+          ▼         ▼          ▼
+      Frontend  Orchestrator  Model
+      Container  Container   Service
+```
+
+| Container | Responsibilities |
+|-----------|-----------------|
+| **Frontend** | Next.js / React UI rendering |
+| **Orchestrator** | API routing, request management, Gemini integration |
+| **Model Service** | Trained AI model, tokenizer, inference & prediction |
+
+✅ Isolated services &nbsp;·&nbsp; ✅ Easy deployment &nbsp;·&nbsp; ✅ Production-ready &nbsp;·&nbsp; ✅ Horizontally scalable
 
 ---
 
@@ -102,40 +140,15 @@ VOICE-AGENT/
 
 ---
 
-## 🐳 Docker Architecture
+## ⚙️ Getting Started
 
-Each service runs in its own isolated container, orchestrated via Docker Compose.
-
-```
-┌──────────────────────────────────────┐
-│           Docker Compose             │
-└────────────┬─────────────────────────┘
-             │
-   ┌─────────┼──────────┐
-   ▼         ▼          ▼
-Frontend  Orchestrator  Model Service
-Container  Container    Container
-```
-
-**Container responsibilities:**
-
-- **Frontend** — Next.js / React UI rendering
-- **Orchestrator** — API routing, request management, Gemini integration
-- **Model Service** — Trained AI model, tokenizer, inference logic
-
-**Benefits:** Isolated services · Easy deployment · Production-ready · Horizontally scalable
-
----
-
-## 🚀 Getting Started
-
-### Run with Docker (Recommended)
+### ▶️ Run with Docker *(Recommended)*
 
 ```bash
 docker-compose up --build
 ```
 
-### Run Locally
+### 🛠️ Run Locally
 
 **Frontend**
 ```bash
@@ -150,26 +163,27 @@ pip install -r requirements.txt
 python app.py
 ```
 
----
-
-## ⚙️ Environment Variables
+### 🔑 Environment Variables
 
 Create a `.env` file in the root directory:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 MODEL_SERVICE_URL=http://model_service:5000
+ORCHESTRATOR_URL=http://orchestrator:8000
 ```
 
 ---
 
 ## 🌟 Key Features
 
-- 🤖 **AI Career Prediction** — Fine-tuned transformer model for domain classification
-- 🔀 **Orchestrator Architecture** — Clean separation of concerns with a dedicated routing layer
-- ✨ **Gemini Response Enhancement** — Raw predictions polished into professional guidance
-- 🐳 **Containerized Deployment** — Full Docker Compose setup, ready for production
-- 📦 **Modular Microservices** — Each service independently deployable and scalable
+| Feature | Description |
+|---------|-------------|
+| 🤖 **AI Career Prediction** | Fine-tuned transformer model for domain classification |
+| 🔀 **Orchestrator Architecture** | Clean separation of concerns with a dedicated routing layer |
+| ✨ **Gemini Enhancement** | Raw predictions polished into professional, human-friendly guidance |
+| 🐳 **Containerized Deployment** | Full Docker Compose setup, production-ready out of the box |
+| 📦 **Modular Microservices** | Each service independently deployable and scalable |
 
 ---
 
@@ -186,7 +200,8 @@ MODEL_SERVICE_URL=http://model_service:5000
 ## 👩‍💻 Author
 
 **Arya Sankar Ram TS**
-AI & Computer Vision Enthusiast · Full Stack + AI Developer · Open Source Contributor
+
+*AI & Computer Vision Enthusiast · Full Stack + AI Developer · Open Source Contributor*
 
 ---
 
@@ -197,5 +212,6 @@ This project is open source. Feel free to fork, contribute, and build on it.
 ---
 
 <div align="center">
-  <strong>⭐ Star this repo if you found it helpful!</strong>
+  <strong>⭐ Star this repo if you found it helpful!</strong><br/>
+  <sub>Made by Arya Sankar Ram TS</sub>
 </div>
